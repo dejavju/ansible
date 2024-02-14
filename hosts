@@ -52,6 +52,18 @@
 ## green.example.com
 ## blue.example.com
 
+#[all:vars]
+#ansible_user = ansible
+#ansible_port = 22
+
+[labb]
+172.18.103.200
+172.18.103.201
+172.18.103.205
+
+[ubuntu]
+172.18.103.200
+172.18.103.205
 
 [xcp-ng]
 172.18.103.[11:13]
