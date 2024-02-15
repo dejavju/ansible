@@ -19,9 +19,28 @@
      when: ansible_distribution == "Ubuntu"
 
 
+- hosts: workstations
+  become: true
+  tasks:
+
+   - name: install unzip
+     package: 
+       name: unzip
+
+   - name: install terraform
+     unarchive:
+       src: https://releases.hashicorp.com/terraform/1.7.3/terraform_1.7.3_linux_amd64.zip
+       dest: /usr/local/bin
+       remote_src: yes
+       owner: root
+       group: root
+       mode: 0755
+
+
 - hosts: webservers
   become: true
   tasks:
+
    - name: Install apache package & php for Ubuntu
      tags: apache,apache2,ubuntu
      apt:
